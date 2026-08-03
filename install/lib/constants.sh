@@ -4,7 +4,7 @@
 # Zimbra Backup Manager (ZBM)
 # File      : install/lib/constants.sh
 # Version   : v0.1.0-alpha
-# Revision  : R001
+# Revision  : R002
 # Purpose   : Global constants library
 # ==========================================================
 #
@@ -12,6 +12,8 @@
 #
 # R001
 #   - Initial release.
+# R002
+#   - Add 3 new constants (zimbra, file permission & runtime)
 #
 
 set -Eeuo pipefail
@@ -95,3 +97,30 @@ readonly ZBM_FILE_MODE="644"
 readonly DEFAULT_RETENTION_DAILY=30
 readonly DEFAULT_RETENTION_WEEKLY=8
 readonly DEFAULT_RETENTION_MONTHLY=12
+
+###############################################################################
+# Zimbra
+###############################################################################
+
+readonly ZIMBRA_HOME="/opt/zimbra"
+readonly ZIMBRA_BIN_DIR="${ZIMBRA_HOME}/bin"
+readonly ZIMBRA_LIB_DIR="${ZIMBRA_HOME}/libexec"
+readonly ZIMBRA_LOG_DIR="/var/log"
+readonly ZIMBRA_USER="zimbra"
+readonly ZIMBRA_GROUP="zimbra"
+
+###############################################################################
+# File Permission
+###############################################################################
+
+readonly ZBM_EXEC_MODE="755"
+readonly ZBM_CONFIG_MODE="640"
+readonly ZBM_CRON_MODE="644"
+readonly ZBM_SCRIPT_MODE="755"
+
+###############################################################################
+# Runtime
+###############################################################################
+
+readonly ZBM_INSTALL_LOG="${ZBM_LOG_DIR}/install.log"
+readonly ZBM_INSTALL_LOCK="${ZBM_LOCK_DIR}/install.lock"
