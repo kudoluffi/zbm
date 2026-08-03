@@ -4,9 +4,16 @@
 # Zimbra Backup Manager (ZBM)
 # File      : install/lib/common.sh
 # Version   : v0.1.0-alpha
-# Revision  : 1
+# Revision  : R002
 # Purpose   : Common helper functions for installer
 # ==========================================================
+#
+# Revision History
+#
+# R001
+#   - Initial release.
+# R002
+#   - Add debag & fatal function.
 
 readonly ZBM_LIB_COMMON_VERSION="1.0.0"
 
@@ -102,4 +109,44 @@ zbm_yes_no() {
                 ;;
         esac
     done
+}
+
+###############################################################################
+# debug
+#
+# Display debug message.
+#
+# Arguments:
+#   $1 Message
+#
+# Returns:
+#   0 Always
+###############################################################################
+
+debug()
+{
+    [[ "${DEBUG:-0}" != "1" ]] && return 0
+
+    printf "[DEBUG] %s\n" "$1"
+
+    return 0
+}
+
+###############################################################################
+# fatal
+#
+# Display fatal error message.
+#
+# Arguments:
+#   $1 Message
+#
+# Returns:
+#   Never
+###############################################################################
+
+fatal()
+{
+    error "$1"
+
+    exit "${EXIT_ERROR}"
 }
