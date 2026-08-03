@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 #
-# installer.sh - ZBM Installer Library
-# Version: 0.1.0-alpha
-
+# ==========================================================
+# Zimbra Backup Manager (ZBM)
+# File      : install/lib/Installer.sh
+# Version   : v0.1.0-alpha
+# Revision  : 1
+# Purpose   : Installer library
+# ==========================================================
 set -Eeuo pipefail
 
 install_directories() {
