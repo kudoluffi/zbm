@@ -4,7 +4,7 @@
 # Zimbra Backup Manager (ZBM)
 # File      : install/lib/filesystem.sh
 # Version   : v0.1.0-alpha
-# Revision  : 1
+# Revision  : R002
 # Purpose   : Filesystem helper library
 # ==========================================================
 
@@ -70,4 +70,14 @@ zbm_prepare_install_dirs(){
     for d in "${dirs[@]}"; do
         zbm_create_directory "$d" 755 root:root || return 1
     done
+}
+
+copy_file()
+{
+    local source="$1"
+    local destination="$2"
+
+    cp -f "${source}" "${destination}"
+
+    return $?
 }
